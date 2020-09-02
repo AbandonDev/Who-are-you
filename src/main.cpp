@@ -125,8 +125,19 @@ int main()
     {
       // Quit
       case 0:
+        #if defined(__MINGW32__)
+        system("cls");
+        running = false;
+        #elif defined(__MINGW64__)
+        system("cls");
+        running = false;
+        #elif defined(_WIN32)
+        system("cls");
+        running = false;
+        #else
         system("clear");
         running = false;
+        #endif
         break;
 
       // Displays home page
